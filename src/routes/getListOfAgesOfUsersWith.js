@@ -2,8 +2,11 @@
 const mockDBCalls = require('../database/index.js');
 
 const getListOfAgesOfUsersWithHandler = async (request, response) => {
-    const itemToLookup = 'carrot';
-    const data = await mockDBCalls.getListOfAgesOfUsersWith(itemToLookup);
+    // this solution is suboptimal due to the deprecated method should find another way around
+    var url = require('url');
+var url_parts = url.parse(request.url, true);
+var query = url_parts.query;
+    const data = await mockDBCalls.getListOfAgesOfUsersWith(query.chosen);
     return response.status(200).send(JSON.stringify(data));
 };
 

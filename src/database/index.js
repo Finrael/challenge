@@ -23,7 +23,9 @@ const getUsers = () => {
 
 const getListOfAgesOfUsersWith = (item) => {
     const dataAccessMethod = () => {
-        // fill me in :)
+        // fill me in :) http://localhost:3000/users/age?chosen=John
+        console.log('response', db.itemsOfUserByUsername[item])
+        return db.itemsOfUserByUsername[item]
     }
     return mockDBCall(dataAccessMethod);
 }
